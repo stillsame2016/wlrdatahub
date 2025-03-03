@@ -65,7 +65,16 @@ if "messages" not in st.session_state:
 
 # Chat interface
 for msg in st.session_state.messages:
-    st.chat_message(msg["role"]).write(msg["content"])
+    if msg["role"] == 'user':
+        st.chat_message(msg["role"]).write(msg["content"])
+    else:
+        with st.chat_message("assistant"):
+            data = msg["content"]
+            st.markdown(f"{data['answer']}\n")
+            markdown_text = ""
+            for dataset in data["datasets"]:
+                markdown_text += f"- **{dataset['Title']}**\n\n{dataset['Description']}\n"
+            st.markdown(markdown_text)
 
 if prompt := st.chat_input("What can I help you with?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
