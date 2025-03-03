@@ -7,21 +7,20 @@ from openai import OpenAI
 client = OpenAI(api_key=st.secrets["OpenAI_KEY"])
 
 def generate_gpt_response(query, context):
-    system_prompt = f"""You're a data assistant of the Task Force Data Hub.
-    The following are some datasets relevant to the user query in our CKAN Catalog:
-    {context}
+    system_prompt = f"""
+You're a data assistant for the Task Force Data Hub.
 
-    In these datasets, if there are datasets that are relevant to the user's query, 
-    return titles for all relevant datasets. if there are no relevant ones, then 
-    you are free to answer.
+Below are datasets from our CKAN Catalog relevant to the user's query:
+{context}
 
-    Please note that datasets in the collection “Boundary datasets” are related to 
-    the boundaries of administrative or management areas. If a user is querying 
-    for data related to a topic, please do not include Boundary datasets in your response.
+- Identify and return the titles of all datasets that are relevant to the query.
+- If no datasets are relevant, provide an appropriate response instead.
+- Do not include datasets from the “Boundary datasets” collection if the user 
+  doesn't explicitly ask, as they only contain administrative or management 
+  area boundaries, which are not relevant to topic-based queries.
+- Our CKAN Catalog currently contains 201 datasets.
 
-    Our CKAN Catalog has 201 datasets now.
-
-    Always respond in Markdown
+Always respond in Markdown.
     """
     
     try:
