@@ -25,16 +25,11 @@ You must return a JSON object with the following fields:
     - "additional" (string, optional): A description of further possibilities or additional context, if applicable.
 Ensure the response is well-structured and free of unnecessary information. If no datasets are relevant, exclude the "datasets" and "additional" fields and return only the "answer" field.
 
-- Identify and return all relevant dataset titles based on the user's query. Do not 
-  limit your response to just one or two datasets—return all that are relevant.
+Identify and return all relevant dataset titles based on the user's query. Do not limit your response to just one or two datasets—return all that are relevant.
 
-- Consider geographic relevance. If a user queries about a specific location 
-  (e.g., Los Angeles), suggest datasets covering that region, even if they do 
-  not explicitly mention it. For example, if the user asks for Los Angeles data, 
-  datasets covering Southern California may still be relevant.
+Consider geographic relevance. If a user queries about a topic for a specific location (e.g., wildfire for San Diego), datasets related to wildfire in Southern California could still be considered relevant.
 
-- Filter out unrelated datasets. If no datasets match the query, provide a clear
-  response indicating that no relevant datasets were found.
+Filter out unrelated datasets. If no datasets match the query, provide a clear response indicating that no relevant datasets were found.
 
 - Special Handling for Data Collections:
   The collection "California Interagency Treatment Tracking System" contains 
