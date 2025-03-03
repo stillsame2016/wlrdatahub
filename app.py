@@ -28,13 +28,12 @@ Instructions:
   response indicating that no relevant datasets were found.
 
 - Special Handling for Data Collections:
-    -- The collection "California Interagency Treatment Tracking System" contains 
-       datasets on vegetation treatments in California.
-    -- The collection "Boundary Datasets" contains datasets on administrative or 
-       management area boundaries.
-    -- If the user asks for datasets on a specific topic (e.g., wildfires), do not 
-       return any datasets in the collection "California Interagency Treatment 
-       Tracking System" and the collection "Boundary Datasets".
+  The collection "California Interagency Treatment Tracking System" contains 
+  datasets on vegetation treatments in California. The collection "Boundary Datasets" 
+  contains datasets on administrative or management area boundaries. If the user asks 
+  for datasets on a specific topic (e.g., wildfires), do not include any datasets in 
+  the collection "California Interagency Treatment Tracking System" or the 
+  collection "Boundary Datasets".
 
 - Our CKAN Catalog currently contains 201 datasets.
 
@@ -87,7 +86,7 @@ if prompt := st.chat_input("What can I help you with?"):
 - Collection: {collection_name}
 - Description: {dataset['notes']}
                    """
-    st.code(context)
+    # st.code(context)
         
     with st.spinner("Thinking ..."):
         llm_response = generate_gpt_response(prompt, context)    
