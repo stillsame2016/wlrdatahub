@@ -38,8 +38,8 @@ Instructions:
 - Our CKAN Catalog currently contains 201 datasets.
 
 Response Format:
-- Must return your answer in the JSON format with the following fields:
-  -- A string field "answer" giving text.
+- Must return a JSON object with the following fields:
+  -- A string field "answer" giving text. If no dataset is relevant, just return this field.
   -- An optional list field "datasets" containing the IDs, titles and descriptions for all datasets.
   -- An optional field "additional", giving a description of further possibilities.
     """
