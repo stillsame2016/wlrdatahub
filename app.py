@@ -39,9 +39,9 @@ Instructions:
 
 Response Format:
 - Must return your answer in the JSON format with the following fields:
-  -- A string field answers.
-  -- A list field containing the IDs, titles and descriptions for all datasets.
-  -- an optional field additional, giving a description of further possibilities.
+  -- A string field "answer".
+  -- A list field "datasets" containing the IDs, titles and descriptions for all datasets.
+  -- an optional field "additional", giving a description of further possibilities.
     """
     
     try:
