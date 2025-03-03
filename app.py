@@ -113,7 +113,8 @@ if prompt := st.chat_input("What can I help you with?"):
                 data = json.loads(llm_response)
                 st.session_state.messages.append({"role": "assistant", "content": data})
             except:
-                pass
+                data = { "answer": llm_response}
+                st.session_state.messages.append({"role": "assistant", "content": data})
             
             st.markdown(f"{data['answer']}\n")
             if "datasets" in data.keys():
