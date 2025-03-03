@@ -47,7 +47,7 @@ if prompt := st.chat_input("What can I help you with?"):
 
     response = requests.get(f"https://sparcal.sdsc.edu/api/v1/Utility/clm?search_terms={prompt}")
     datasets = json.loads(response.text)
-    st.code(json.dumps(datasets, indent=4))
+    # st.code(json.dumps(datasets, indent=4))
 
     context = ""
     for dataset in datasets:
@@ -58,6 +58,8 @@ if prompt := st.chat_input("What can I help you with?"):
                    
                    """
 
+    st.markdown(context)
+    
     llm_response = generate_gpt_response(prompt, context)    
     st.code(llm_response)
     
