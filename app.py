@@ -14,6 +14,7 @@ Below are datasets from our CKAN Catalog relevant to the user's query:
 {context}
 
 - Identify and return the titles of all datasets that are relevant to the query.
+  Please return all relevant datasets, not just one or two.
 - In particular, note that if a user queries for data related to a certain region, 
   e.g., Los Angeles, a dataset covering the Los Angeles region can be returned to 
   the user as a suggestion, even though the Los Angeles dataset is not directly 
