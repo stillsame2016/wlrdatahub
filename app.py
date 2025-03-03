@@ -14,7 +14,10 @@ def generate_gpt_response(query, context):
     In these datasets, if there are datasets that are relevant to the user's query, 
     return titles for all relevant datasets. if there are no relevant ones, then 
     you are free to answer.
-    
+
+    Please note that datasets in the collection “Boundary datasets” are related to 
+    the boundaries of administrative or management areas.  
+
     Always respond in Markdown
     """
     
@@ -51,11 +54,16 @@ if prompt := st.chat_input("What can I help you with?"):
 
     context = ""
     for dataset in datasets:
+        extras = dataset['extras']
+        collection_name = ''
+        for extra in extras:
+            if extra['key'] == 'collection_name':
+                collection_name = extra['value']
         context += f"""
+                   ID: {dataset['id']}
                    Title: {dataset['title']}
                    Description: {dataset['notes']}
-                   ID: {dataset['id']}
-                   
+                   Collection: {collection_name}
                    """
     # st.markdown(context)
         
