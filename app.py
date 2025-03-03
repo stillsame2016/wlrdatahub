@@ -40,7 +40,7 @@ Instructions:
 Response Format:
 - Please return your answer in the JSON format with the following fields:
   -- A string field answers, giving a description of the answer.
-  -- A table field containing the IDs of all datasets
+  -- A list field containing the IDs, titles and descriptions for all datasets.
   -- an optional field additional, giving a description of further possibilities
     """
     
