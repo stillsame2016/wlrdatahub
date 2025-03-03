@@ -66,13 +66,13 @@ if prompt := st.chat_input("What can I help you with?"):
         for extra in extras:
             if extra['key'] == 'collection_name':
                 collection_name = extra['value']
-        context += f"""
-                   ID: {dataset['id']}
-                   Title: {dataset['title']}
-                   Description: {dataset['notes']}
-                   Collection: {collection_name}
+        context += f"""       
+- ID: {dataset['id']}
+- Title: {dataset['title']}
+- Description: {dataset['notes']}
+- Collection: {collection_name}
                    """
-    st.markdown(context)
+    st.code(context)
         
     with st.spinner("Thinking ..."):
         llm_response = generate_gpt_response(prompt, context)    
