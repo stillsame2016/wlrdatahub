@@ -96,14 +96,16 @@ if prompt := st.chat_input("What can I help you with?"):
             st.session_state.messages.append({"role": "assistant", "content": llm_response})
 
             # st.code(llm_response)
-            # Display answer
-            st.markdown(f"**{llm_response['answer']}**")
             
-            # Create an expandable section for each dataset
+            # Display answer
+            st.markdown(f"**{llm_response['answer']}**\n")
+            
+            # Format datasets as a markdown list
+            markdown_text = ""
             for dataset in llm_response["datasets"]:
-                with st.expander(f"📌 {dataset['Title']}"):
-                    st.write(f"**Description:** {dataset['Description']}")
-                    st.code(dataset["ID"], language="plaintext")
+                markdown_text += f"- **{dataset['Title']}**\n  - *Description:* {dataset['Description']}\n  - *ID:* `{dataset['ID']}`\n\n"
+            
+            st.markdown(markdown_text)
 
 
 
