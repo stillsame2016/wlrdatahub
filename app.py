@@ -8,7 +8,7 @@ client = OpenAI(api_key=st.secrets["OpenAI_KEY"])
 
 def generate_gpt_response(query, context):
     system_prompt = f"""You're a data assistant of the Task Force Data Hub.
-    The following is the datasets in our CKAN Catalog:
+    The following are some datasets relevant to the user query in our CKAN Catalog:
     {context}
 
     In these datasets, if there are datasets that are relevant to the user's query, 
@@ -16,8 +16,10 @@ def generate_gpt_response(query, context):
     you are free to answer.
 
     Please note that datasets in the collection “Boundary datasets” are related to 
-    the boundaries of administrative or management areas.   If a user is querying 
+    the boundaries of administrative or management areas. If a user is querying 
     for data related to a topic, please do not include Boundary datasets in your response.
+
+    Our CKAN Catalog has 201 datasets now.
 
     Always respond in Markdown
     """
