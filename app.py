@@ -107,7 +107,7 @@ if prompt := st.chat_input("What can I help you with?"):
 
             try:
                 data = json.loads(llm_response)
-                 st.session_state.messages.append({"role": "assistant", "content": data})
+                st.session_state.messages.append({"role": "assistant", "content": data})
             except:
                 pass
             
