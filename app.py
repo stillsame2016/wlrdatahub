@@ -78,6 +78,8 @@ for msg in st.session_state.messages:
                 for dataset in data["datasets"]:
                     markdown_text += f"- **{dataset['title']}**\n\n{dataset['description']}\n"
                 st.markdown(markdown_text)
+            if "additional" in data.keys():
+                st.markdown(f"{data['additional']}\n")
 
 if prompt := st.chat_input("What can I help you with?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
@@ -119,6 +121,9 @@ if prompt := st.chat_input("What can I help you with?"):
                 for dataset in data["datasets"]:
                     markdown_text += f"- **{dataset['title']}**\n\n{dataset['description']}\n"
                 st.markdown(markdown_text)
+            if "additional" in data.keys():
+                st.markdown(f"{data['additional']}\n")
+    
     st.rerun()
 
 
