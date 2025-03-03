@@ -16,7 +16,8 @@ def generate_gpt_response(query, context):
     you are free to answer.
 
     Please note that datasets in the collection “Boundary datasets” are related to 
-    the boundaries of administrative or management areas.  
+    the boundaries of administrative or management areas.   If a user is querying 
+    for data related to a topic, please do not include Boundary datasets in your response.
 
     Always respond in Markdown
     """
