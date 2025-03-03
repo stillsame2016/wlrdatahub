@@ -98,8 +98,6 @@ if prompt := st.chat_input("What can I help you with?"):
 - Collection: {collection_name}
 - Description: {dataset['notes']}
                    """
-    # st.code(context)
-
     with st.chat_message("assistant"):
         with st.spinner("Thinking ..."):
             llm_response = generate_gpt_response(prompt, context)    
@@ -117,7 +115,7 @@ if prompt := st.chat_input("What can I help you with?"):
                 for dataset in data["datasets"]:
                     markdown_text += f"- **{dataset['title']}**\n\n{dataset['description']}\n"
                 st.markdown(markdown_text)
-
+    st.rerun()
 
 
 
