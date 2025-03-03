@@ -72,8 +72,9 @@ for msg in st.session_state.messages:
             data = msg["content"]
             st.markdown(f"{data['answer']}\n")
             markdown_text = ""
-            for dataset in data["datasets"]:
-                markdown_text += f"- **{dataset['Title']}**\n\n{dataset['Description']}\n"
+            if "datasets" in data.keys():
+                for dataset in data["datasets"]:
+                    markdown_text += f"- **{dataset['Title']}**\n\n{dataset['Description']}\n"
             st.markdown(markdown_text)
 
 if prompt := st.chat_input("What can I help you with?"):
@@ -106,14 +107,11 @@ if prompt := st.chat_input("What can I help you with?"):
 
             st.code(llm_response)
             
-            # Display answer
             st.markdown(f"{llm_response['answer']}\n")
-            
-            # Format datasets as a markdown list
-            markdown_text = ""
-            for dataset in llm_response["datasets"]:
-                markdown_text += f"- **{dataset['Title']}**\n\n{dataset['Description']}\n"
-            
+            if "datasets" in llm_response.keys():
+                markdown_text = ""
+                for dataset in llm_response["datasets"]:
+                    markdown_text += f"- **{dataset['Title']}**\n\n{dataset['Description']}\n"
             st.markdown(markdown_text)
 
 
