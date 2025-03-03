@@ -17,5 +17,6 @@ if prompt := st.chat_input("What can I help you with?"):
 
     with st.spinner("Thinking ..."):
         st.session_state.messages.append({"role": "assistant", "content": prompt})
+        st.chat_message("assistant").write(prompt)
 
 
