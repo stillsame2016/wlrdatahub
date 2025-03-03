@@ -56,7 +56,7 @@ Ensure the response is well-structured and free of unnecessary information. If n
             ],
             temperature=0.7
         )
-        return response.choices[0].message.content
+        return json.loads(response.choices[0].message.content)
     except Exception as e:
         return f"AI service error: {str(e)}"
 
