@@ -103,19 +103,18 @@ if prompt := st.chat_input("What can I help you with?"):
     with st.chat_message("assistant"):
         with st.spinner("Thinking ..."):
             llm_response = generate_gpt_response(prompt, context)    
-            st.session_state.messages.append({"role": "assistant", "content": llm_response})
-
             st.code(llm_response)
 
             try:
                 data = json.loads(llm_response)
+                 st.session_state.messages.append({"role": "assistant", "content": data})
             except:
                 pass
             
-            st.markdown(f"{llm_response['answer']}\n")
-            if "datasets" in llm_response.keys():
+            st.markdown(f"{data['answer']}\n")
+            if "datasets" in data.keys():
                 markdown_text = ""
-                for dataset in llm_response["datasets"]:
+                for dataset in data["datasets"]:
                     markdown_text += f"- **{dataset['title']}**\n\n{dataset['description']}\n"
                 st.markdown(markdown_text)
 
