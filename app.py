@@ -53,7 +53,7 @@ if prompt := st.chat_input("What can I help you with?"):
     for dataset in datasets:
         context += f"""
                    Title: {dataset['title']}
-                   Description: {dataset['note']}
+                   Description: {dataset['notes']}
                    ID: {dataset['id']}
                    
                    """
