@@ -32,6 +32,8 @@ Consider geographic relevance. For example, if a user queries "Do you have any d
 
 Filter out unrelated datasets. If no datasets match the query, provide a clear response indicating that no relevant datasets were found.
 
+All datasets in the collection "California Landscape Metrics" covers California.
+
 - Special Handling for Data Collections:
   The collection "California Interagency Treatment Tracking System" contains 
   datasets on vegetation treatments in California. The collection "Boundary Datasets" 
