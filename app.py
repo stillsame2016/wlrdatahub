@@ -104,7 +104,7 @@ if prompt := st.chat_input("What can I help you with?"):
             llm_response = generate_gpt_response(prompt, context)    
             st.session_state.messages.append({"role": "assistant", "content": llm_response})
 
-            # st.code(llm_response)
+            st.code(llm_response)
             
             # Display answer
             st.markdown(f"{llm_response['answer']}\n")
