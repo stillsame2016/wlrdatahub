@@ -38,8 +38,10 @@ Instructions:
 - Our CKAN Catalog currently contains 201 datasets.
 
 Response Format:
-- Use Markdown for better readability.
-- Provide dataset titles in a bulleted list with any additional relevant metadata (if applicable).
+- Please return your answer in the JSON format with the following fields:
+  -- A string field answers, giving a description of the answer.
+  -- A table field containing the IDs of all datasets
+  -- an optional field additional, giving a description of further possibilities
     """
     
     try:
