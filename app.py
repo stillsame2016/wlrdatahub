@@ -57,15 +57,12 @@ if prompt := st.chat_input("What can I help you with?"):
                    ID: {dataset['id']}
                    
                    """
-
-    st.markdown(context)
-    
-    llm_response = generate_gpt_response(prompt, context)    
-    st.code(llm_response)
-    
+    # st.markdown(context)
+        
     with st.spinner("Thinking ..."):
-        st.session_state.messages.append({"role": "assistant", "content": prompt})
-        st.chat_message("assistant").write(prompt)
+        llm_response = generate_gpt_response(prompt, context)    
+        st.session_state.messages.append({"role": "assistant", "content": llm_response})
+        st.chat_message("assistant").write(llm_response)
 
 
 
