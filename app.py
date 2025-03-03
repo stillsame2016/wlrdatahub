@@ -2,8 +2,9 @@
 import json
 import requests
 import streamlit as st
+from openai import OpenAI
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key=st.secrets["OpenAI_KEY"])
 
 def generate_gpt_response(query, context):
     system_prompt = f"""You're a data assistant of the Task Force Data Hub.
