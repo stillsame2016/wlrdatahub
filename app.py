@@ -69,8 +69,8 @@ if prompt := st.chat_input("What can I help you with?"):
         context += f"""       
 - ID: {dataset['id']}
 - Title: {dataset['title']}
-- Description: {dataset['notes']}
 - Collection: {collection_name}
+- Description: {dataset['notes']}
                    """
     st.code(context)
         
