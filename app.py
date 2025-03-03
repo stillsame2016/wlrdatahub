@@ -103,7 +103,7 @@ if prompt := st.chat_input("What can I help you with?"):
             # Format datasets as a markdown list
             markdown_text = ""
             for dataset in llm_response["datasets"]:
-                markdown_text += f"- **{dataset['Title']}**\n{dataset['Description']}\n"
+                markdown_text += f"- **{dataset['Title']}**\n\n{dataset['Description']}\n"
             
             st.markdown(markdown_text)
 
