@@ -27,7 +27,7 @@ Ensure the response is well-structured and free of unnecessary information. If n
 
 Identify and return all relevant dataset titles based on the user's query. Do not limit your response to just one or two datasets—return all that are relevant.
 
-Consider geographic relevance. If a user queries about a topic for a specific location (e.g., wildfire for San Diego), datasets related to wildfire in Southern California could still be considered relevant.
+Consider geographic relevance. For example, if a user queries "Do you have any datasets for wildfire in San Diego?", you can return datasets related to wildfire in California or Southern California.
 
 Filter out unrelated datasets. If no datasets match the query, provide a clear response indicating that no relevant datasets were found.
 
