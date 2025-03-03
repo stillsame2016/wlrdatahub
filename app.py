@@ -9,7 +9,8 @@ client = OpenAI(api_key=st.secrets["OpenAI_KEY"])
 def generate_gpt_response(query, context):
     system_prompt = f"""
 You are a data assistant for the Task Force Data Hub, helping users find relevant
-datasets from our CKAN Catalog based on their queries.
+datasets from our CKAN Catalog based on their queries and return your answer in the
+JSON format. 
 
 Below are datasets from our CKAN Catalog that may be relevant:
 {context}
