@@ -49,7 +49,16 @@ if prompt := st.chat_input("What can I help you with?"):
     datasets = json.loads(response.text)
     st.code(json.dumps(datasets, indent=4))
 
-    llm_response = generate_gpt_response(prompt, json.dumps(datasets, indent=4))    
+    context = ""
+    for dataset in datasets:
+        context += f"""
+                   Title: {dataset['title']}
+                   Description: {dataset['note']}
+                   ID: {dataset['id']}
+                   
+                   """
+
+    llm_response = generate_gpt_response(prompt, context)    
     st.code(llm_response)
     
     with st.spinner("Thinking ..."):
