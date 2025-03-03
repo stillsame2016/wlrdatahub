@@ -11,9 +11,12 @@ def generate_gpt_response(query, context):
     The following is the datasets in our CKAN Catalog:
     {context}
 
-    - Use these datasets to answer the user query
-    - Always respond in Markdown
-    - Be concise but informative"""
+    In these datasets, if there are datasets that are relevant to the user's query, 
+    return titles for all relevant datasets. if there are no relevant ones, then 
+    you are free to answer.
+    
+    Always respond in Markdown
+    """
     
     try:
         response = client.chat.completions.create(
