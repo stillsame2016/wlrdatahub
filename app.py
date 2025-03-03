@@ -81,25 +81,27 @@ if prompt := st.chat_input("What can I help you with?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
 
-    response = requests.get(f"https://sparcal.sdsc.edu/api/v1/Utility/clm?search_terms={prompt}")
-    datasets = json.loads(response.text)
-    # st.code(json.dumps(datasets, indent=4))
-
-    context = ""
-    for dataset in datasets:
-        extras = dataset['extras']
-        collection_name = ''
-        for extra in extras:
-            if extra['key'] == 'collection_name':
-                collection_name = extra['value']
-        context += f"""       
-- ID: {dataset['id']}
-- Title: {dataset['title']}
-- Collection: {collection_name}
-- Description: {dataset['notes']}
-                   """
     with st.chat_message("assistant"):
-        with st.spinner("Thinking ..."):
+        with st.spinner("Searching ..."):
+            response = requests.get(f"https://sparcal.sdsc.edu/api/v1/Utility/clm?search_terms={prompt}")
+            datasets = json.loads(response.text)
+            # st.code(json.dumps(datasets, indent=4))
+        
+            context = ""
+            for dataset in datasets:
+                extras = dataset['extras']
+                collection_name = ''
+                for extra in extras:
+                    if extra['key'] == 'collection_name':
+                        collection_name = extra['value']
+                context += f"""       
+                            - ID: {dataset['id']}
+                            - Title: {dataset['title']}
+                            - Collection: {collection_name}
+                            - Description: {dataset['notes']}
+                           """
+                
+        with st.spinner("Summarizing ..."):
             llm_response = generate_gpt_response(prompt, context)    
             st.code(llm_response)
 
