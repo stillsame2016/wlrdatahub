@@ -105,7 +105,7 @@ if prompt := st.chat_input("What can I help you with?"):
                             - Description: {dataset['notes']}
                            """
                 
-        with st.spinner("Summarizing ..."):
+        with st.spinner("Thinking ..."):
             llm_response = generate_gpt_response(prompt, context)    
             st.code(llm_response)
 
