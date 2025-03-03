@@ -95,13 +95,16 @@ if prompt := st.chat_input("What can I help you with?"):
             llm_response = generate_gpt_response(prompt, context)    
             st.session_state.messages.append({"role": "assistant", "content": llm_response})
 
-            st.code(llm_response)
+            # st.code(llm_response)
+            # Display answer
+            st.markdown(f"**{llm_response['answer']}**")
             
-            st.write(llm_response['answer'])
-            for dataset in llm_response['datasets']:
-                st.markdown(dataset['ID'])
-                st.markdown(dataset['Title'])
-                st.markdown(dataset['Description'])
+            # Create an expandable section for each dataset
+            for dataset in llm_response["datasets"]:
+                with st.expander(f"📌 {dataset['Title']}"):
+                    st.write(f"**Description:** {dataset['Description']}")
+                    st.code(dataset["ID"], language="plaintext")
+
 
 
 
