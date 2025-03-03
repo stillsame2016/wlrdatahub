@@ -33,7 +33,8 @@ Instructions:
     -- The collection "Boundary Datasets" contains datasets on administrative or 
        management area boundaries.
     -- If the user asks for datasets on a specific topic (e.g., wildfires), do not 
-       return any datasets from both collections.
+       return any datasets in the collection "California Interagency Treatment 
+       Tracking System" and the collection "Boundary Datasets".
 
 - Our CKAN Catalog currently contains 201 datasets.
 
