@@ -20,9 +20,12 @@ Below are datasets from our CKAN Catalog relevant to the user's query:
   the user as a suggestion, even though the Los Angeles dataset is not directly 
   mentioned. For example, data for Southern California.
 - If no datasets are relevant, provide an appropriate response instead.
-- Do not include datasets from the “Boundary datasets” collection if the user 
-  doesn't explicitly ask, as they only contain administrative or management 
-  area boundaries, which are not relevant to topic-based queries.
+- The data collection “California Interagency Treatment Tracking System” contains 
+  data on all agency treatments of vegetation in California. The data collection 
+  “Boundary Datasets” contains datasets on the boundaries of various administrative 
+  or management areas. In general, please do not return these two datasets if the 
+  user is only asking for data on a certain topic and there is no obvious direct 
+  inquiry with these two datasets.
 - Our CKAN Catalog currently contains 201 datasets.
 
 Always respond in Markdown.
