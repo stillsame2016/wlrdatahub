@@ -72,7 +72,7 @@ if prompt := st.chat_input("What can I help you with?"):
                    Description: {dataset['notes']}
                    Collection: {collection_name}
                    """
-    # st.markdown(context)
+    st.markdown(context)
         
     with st.spinner("Thinking ..."):
         llm_response = generate_gpt_response(prompt, context)    
